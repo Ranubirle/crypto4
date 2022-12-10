@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptodata</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .t1
+        {
+            width:80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 15px;
+            border-collapse: collapse;
+            background-color: black;
+            height:100%;
+            overflow: hidden;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .t1 tr{
+            border: 1px solid gray;
+            padding: 20px;
+        }
+        .t1 tbody tr{
+            border: 1px solid gray;
+
+        }
+        
+        
+        .t1 tbody tr td{
+            padding-top: 25px;
+            padding-bottom: 25px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            margin-left: 15px;
+            margin-right: 15px;
+            color:rgb(240, 229, 229);
+        }
+        .t1  tr td{
+            margin-left: 20px;
+            color:rgb(240, 229, 229);
+            padding-top: 35px;
+            
+        }
+        
+      
+       
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+            <table class="t1">
+                
+                <tr>
+                   
+                    
+                    <td><img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?" height="35px" width="30px"></img><span>Bitcoin</span></td>
+                    <td>BTC</td>
+                    <td>$20023</td>
+                    <td>$28,534,462,145</td>
+                    <td style="color:green">3.79%</td>
+                    <td>Mkt cap:$382,801,405,357</td>
+                </tr>
+                
+                
+                
+                
+                
+                <tbody>
+                <tr>
+                    <td><img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png?" height="35px" width="30px"></img><span>Ethereum</span></td>
+                    <td>ETH</td>
+                    <td>$1354.77</td>
+                    <td>$9,002,850,028</td>
+                    <td style="color:green">3.48%</td>
+                    <td>Mkt cap:$163,323147,715</td>
+                    
+                </tr>
+                
+                <tr>
+                    <td><img src="https://assets.coingecko.com/coins/images/325/large/Tether.png?" height="35px" width="30px"></img><span>Tether</span></td>
+                    <td>USDT</td>
+                    <td>$1.001</td>
+                    <td>$33,471,352,657</td>
+                    <td style="color:red">-0.03%</td>
+                    <td>Mkt cap:$67,968,396,233</td>
+                    
+                </tr>
+                <hr>
+                <tr>
+                   <td><img src="https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?" height="35px" width="30px"></img>BNB</td>
+                    <td>BNB</td>
+                    <td>$293.02</td>
+                    <td>$362,136,764</td>
+                    <td style="color:green">2.19%</td>
+                    <td>Mkt cap:$47,697,282,647</td>
+                    
+                </tr>
+                <tr>
+                     <td><img src="https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?" height= "35px" width="30px"></img><span>USD Coin</span></td>
+                    <td>USDC</td>
+                    <td>$1</td>
+                    <td>$3,277,543,643</td>
+                    <td style="color:green">0.01%</td>
+                    <td>Mkt cap:$47,095,350,153</td>
+                    
+                </tr>
+                <tr>
+                    <td><img src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?" height= "35px" width="30px"></img><span>XRP</span></td>
+                    <td>XRP</td>
+                    
+                    <td>$0.474016</td>
+                    <td>$1,839,526,667</td>
+                    <td style="color:green">4.98%</td>
+                    <td>Mkt cap:$23,426,798,467</td>
+                    
+                </tr>
+                <tr>
+                    <td><img src="https://assets.coingecko.com/coins/images/9576/large/BUSD.png?" height= "35px" width="30px"></img><span>Binance USD</span></td>
+                    <td>BUSD</td>
+                    <td>$1.001</td>
+                    <td>$6,792,694,651</td>
+                    <td style="color:green">0.10%</td>
+                    <td>Mkt cap:$20,894,853,241</td>
+                    
+                </tr>
+                <tr>
+                    <td><img src="https://assets.coingecko.com/coins/images/975/large/cardano.png?" height= "35px" width="30px"></img><span>Carnado</span></td>
+                    <td>ADA</td>
+                    <td>$0.432255</td>
+                    <td>$396,719,844</td>
+                    <td style="color:green">1.71%</td>
+                    <td>Mkt cap:$14,621,316,672</td>
+                    
+                </tr>
+                <tbody>
+
+            </table>
+                
+            
+        </form>
+    </div>
+    <script>
+        let p=new Promise((resolve,reject)=>{
+            resolve(data());
+        })
+       async function data()
+        {
+            const users = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false").then (function(users){
+                return users.json();
+            })
+            .then(function(makers){
+                console.log(makers);
+            })
+        }
+        
+        p.then((res)=>{
+            console.log(res);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        
+    </script>
+    
+</body>
+</html>
